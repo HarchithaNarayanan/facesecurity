@@ -35,9 +35,8 @@ export const FaceScanner = ({
           setIsVideoReady(true);
         };
       }
-    } catch (err) {
+    } catch {
       setError('Camera access denied. Please enable camera permissions.');
-      console.error('Camera error:', err);
     }
   }, []);
 
