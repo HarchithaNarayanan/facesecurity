@@ -7,8 +7,8 @@ import Index from "./pages/Index";
 import Enroll from "./pages/Enroll";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import Report from "./pages/Report";
 import NotFound from "./pages/NotFound";
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -22,6 +22,7 @@ const App = () => (
           <Route path="/enroll" element={<Enroll />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/report" element={<Report />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
