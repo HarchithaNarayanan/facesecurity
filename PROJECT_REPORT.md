@@ -155,7 +155,7 @@ A cyberpunk-themed web application with:
 ### AI Tools I will use:
 
 1. **ChatGPT** – For generating insights, architecture design, and security best practices
-2. **Lovable AI** – For designing and building the website interface with AI-assisted coding
+2. **AI-assisted design tools** – For designing and building the website interface
 3. **GitHub** – For version control and project sharing
 
 ## Step 7: Test – Getting Feedback
@@ -177,7 +177,7 @@ A cyberpunk-themed web application with:
 
 - Integrate actual ML models for face recognition
 - Add more gesture options
-- Implement backend authentication with Lovable Cloud
+- Implement backend authentication with a secure cloud service
 - Add accessibility features
 - Include multi-language support
 
@@ -193,7 +193,7 @@ I recorded my project explanation and uploaded the following to GitHub:
 ### AI Tools used for Step 6-7:
 
 - **ChatGPT**: Helped create security architecture and user flow design
-- **Lovable AI**: Used to design and build the website with framer-motion animations
+- **AI-assisted design tools**: Used to design and build the website interface with animations
 - **GitHub**: Used to store and share the project files
 
 ---
@@ -210,7 +210,7 @@ I recorded my project explanation and uploaded the following to GitHub:
 Traditional authentication relies on passwords that are easily forgotten, stolen, or compromised. Basic biometrics can be spoofed using photos or videos.
 
 #### My Innovation:
-I created a Cognitive-Aware Login System using Lovable AI that combines:
+I created a Cognitive-Aware Login System that combines:
 - **Face Recognition**: Identifies the user's unique facial features
 - **Gesture Authentication**: Requires a secret facial gesture (wink, nod, smile)
 - **Liveness Detection**: Ensures a real person is present, not a photo
@@ -229,7 +229,7 @@ This dual-layer approach makes authentication virtually impossible to fake.
 
 #### Tools Used:
 
-1. **Lovable AI** – For rapid web development
+1. **Vite** – For rapid frontend development and build tooling
 2. **React + TypeScript** – Frontend framework
 3. **Framer Motion** – Animation library
 4. **Tailwind CSS** – Styling system
@@ -321,7 +321,7 @@ My biggest challenge was implementing smooth camera access across different brow
 
 # Links
 
-**PROJECT LINK**: [Your Lovable App URL]
+**PROJECT LINK**: [Your Deployed App URL]
 
 **GITHUB LINK**: [Your GitHub Repository URL]
 
