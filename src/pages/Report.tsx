@@ -272,7 +272,7 @@ const Report = () => {
               <h4 className="font-semibold text-cyan-800 mb-2">AI Tools used for Step 6-7:</h4>
               <ul className="list-disc list-inside text-gray-600">
                 <li><strong>ChatGPT:</strong> Helped create security architecture and user flow design</li>
-                <li><strong>Lovable AI:</strong> Used to design and build the website with framer-motion animations</li>
+                <li><strong>AI-assisted design tools:</strong> Used to design and build the website interface with animations</li>
                 <li><strong>GitHub:</strong> Used to store and share the project files</li>
               </ul>
             </div>
@@ -303,7 +303,7 @@ const Report = () => {
               <div className="bg-gray-50 p-4 rounded-lg mb-4">
                 <h4 className="font-semibold text-gray-700 mb-2">My Innovation:</h4>
                 <p className="text-gray-600 mb-3">
-                  I created a Cognitive-Aware Login System using Lovable AI that combines:
+                  I created a Cognitive-Aware Login System that combines:
                 </p>
                 <ul className="list-disc list-inside text-gray-600 space-y-1">
                   <li><strong>Face Recognition:</strong> Identifies the user&apos;s unique facial features</li>
@@ -315,7 +315,7 @@ const Report = () => {
               <div className="bg-gray-50 p-4 rounded-lg mb-4">
                 <h4 className="font-semibold text-gray-700 mb-2">Tools Used:</h4>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm">Lovable AI</span>
+                  <span className="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm">Vite</span>
                   <span className="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm">React + TypeScript</span>
                   <span className="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm">Framer Motion</span>
                   <span className="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm">Tailwind CSS</span>
@@ -470,7 +470,7 @@ const Report = () => {
             <h2 className="text-2xl font-bold text-cyan-700 mb-4">Project Links</h2>
             <div className="space-y-2">
               <p className="text-gray-600">
-                <strong>PROJECT LINK:</strong> [Your Lovable App URL]
+                <strong>PROJECT LINK:</strong> [Your Deployed App URL]
               </p>
               <p className="text-gray-600">
                 <strong>GITHUB LINK:</strong> [Your GitHub Repository URL]
