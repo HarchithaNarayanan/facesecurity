@@ -114,9 +114,9 @@ The app will be available at `http://localhost:5173` by default.
 
 ## How to Deploy
 
-1. Open [Lovable](https://lovable.dev)
-2. Click **Share** → **Publish**
-3. Your app will be live on the published URL
+1. Build the project using `npm run build`
+2. Deploy the `dist` folder to any static hosting provider (e.g., Netlify, Vercel, GitHub Pages, Cloudflare Pages)
+3. Your app will be live on your chosen hosting URL
 
 ---
 
@@ -132,7 +132,7 @@ The app will be available at `http://localhost:5173` by default.
 ## Future Enhancements
 
 - Add liveness detection with blink/head movement checks
-- Implement real backend authentication with Lovable Cloud
+- Implement real backend authentication with a secure cloud service
 - Multi-device profile sync
 - 2FA support with email or OTP
 - Onboarding tutorial for first-time users
