@@ -24,6 +24,18 @@ Traditional passwords are easy to forget, reuse, and steal. Biometric login is b
 
 This project adds a **cognitive layer**: after recognizing your face, the system asks you to perform a secret gesture that only you know — a wink, head nod, smile, or eyebrow raise. Because the gesture is dynamic and changeable, it acts as both a second factor and a lightweight liveness check.
 
+## Project Highlights
+
+**Cognitive-Aware Login System | TypeScript, React, WebRTC**
+
+Built a TypeScript + React biometric authentication prototype with dedicated enrollment, login, and dashboard workflows using real-time camera access.
+
+Designed a dual-factor authentication flow combining facial verification with 6 gesture options, including winks, eyebrow raises, head nods, smiles, and custom gestures.
+
+Implemented a biometric processing pipeline using 128-dimensional face embeddings, cosine-similarity matching, and gesture-sequence verification using DTW/sequence matching.
+
+Developed responsive security-focused interfaces with React Router, Framer Motion, Tailwind CSS, and shadcn/ui.
+
 ### Authentication Flow
 
 ```
