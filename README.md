@@ -1,112 +1,46 @@
 # Cognitive-Aware Login System
 
-A next-generation biometric authentication system that combines **facial recognition** with a **user-defined facial gesture** to create a secure, passwordless login experience. This project demonstrates how cognitive awareness — the ability to verify both *who* a user is and *what* they do — can strengthen digital identity verification beyond traditional passwords and PINs.
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss)](https://tailwindcss.com/)
+
+A biometric authentication prototype that combines **facial recognition** with a **user-defined facial gesture** for a secure, passwordless login experience.
+
+> **Demo Notice:** This is a frontend prototype built for experimentation and demonstration. The face and gesture recognition logic in the current build is simulated for UI/UX evaluation. Production use requires a secure backend, encrypted biometric storage, and real ML models.
 
 ---
 
-## Project Information
+## Live Demo
 
-| Field | Details |
-|-------|---------|
-| **Project Name** | Cognitive-Aware Login System |
-| **Innovator** | [Your Name Here] |
-| **Start Date** | [Start Date] |
-| **End Date** | [End Date] |
-| **Live Preview** | https://id-preview--04361d76-d4c8-43ad-b498-aa84c992d821.lovable.app |
-| **Published URL** | https://facesecurity.lovable.app |
+- **Preview:** https://id-preview--04361d76-d4c8-43ad-b498-aa84c992d821.lovable.app
+- **Published:** https://facesecurity.lovable.app
 
 ---
 
-## Table of Contents
+## What It Does
 
-1. [Introduction](#introduction)
-2. [Problem Statement](#problem-statement)
-3. [Proposed Solution](#proposed-solution)
-4. [System Architecture](#system-architecture)
-5. [Key Features](#key-features)
-6. [Technology Stack](#technology-stack)
-7. [Application Structure](#application-structure)
-8. [Pages and Routes](#pages-and-routes)
-9. [Installation and Setup](#installation-and-setup)
-10. [Usage Guide](#usage-guide)
-11. [Security Considerations](#security-considerations)
-12. [Model Architecture](#model-architecture)
-13. [Training Pipeline](#training-pipeline)
-14. [Future Enhancements](#future-enhancements)
-15. [License](#license)
+Traditional passwords are easy to forget, reuse, and steal. Biometric login is better, but a static face or fingerprint can still be spoofed with a photo or video.
 
----
+This project adds a **cognitive layer**: after recognizing your face, the system asks you to perform a secret gesture that only you know — a wink, head nod, smile, or eyebrow raise. Because the gesture is dynamic and changeable, it acts as both a second factor and a lightweight liveness check.
 
-## Introduction
-
-Passwords have been the dominant form of authentication for decades, but they suffer from well-known weaknesses: weak user choices, credential stuffing, phishing, and forgotten credentials. Biometric authentication offers a compelling alternative, yet a static biometric such as a face or fingerprint can still be spoofed if an attacker captures a high-quality image or replica.
-
-The **Cognitive-Aware Login System** addresses this by adding a second, dynamic factor: a **secret facial gesture** chosen by the user. During enrollment, the user registers their face and selects a gesture such as a wink, head nod, smile sequence, or eyebrow raise. During login, the system verifies both the user's identity and the performed gesture before granting access.
-
----
-
-## Problem Statement
-
-Traditional authentication methods face serious challenges:
-
-- **Credential Theft:** Stolen username/password pairs are sold and reused across services.
-- **Phishing and Social Engineering:** Users are tricked into revealing login details.
-- **Password Fatigue:** Complex password requirements lead to reuse, sticky notes, and frequent resets.
-- **Static Biometric Risks:** A face or fingerprint alone, once leaked or copied, cannot be changed like a password.
-
-People need an authentication method that is:
-
-- Secure against theft and replay attacks
-- Easy to use without memorizing credentials
-- Hard to fake, even if biometric data is captured
-- Adaptable to everyday devices with a camera
-
----
-
-## Proposed Solution
-
-This system introduces a **two-factor cognitive authentication** flow:
-
-1. **Face Recognition Factor** — Confirms the user's physical identity by analyzing facial landmarks and generating a unique face embedding.
-2. **Gesture Authentication Factor** — Confirms a secret action known only to the user, adding a dynamic, changeable layer of security.
-
-Because the gesture is performed live during authentication, it acts as a liveness check and protects against simple photo or video replay attacks. The user can also change their gesture if they ever feel it has been observed.
-
----
-
-## System Architecture
-
-The authentication pipeline follows a clear sequence from camera input to access decision:
+### Authentication Flow
 
 ```
 Camera Input (WebRTC)
         |
         v
-Face Detection (Haar Cascade / MTCNN)
+Face Detection
         |
         v
-Face Encoding (FaceNet / DeepFace)
+Face Encoding
         |
         v
-Gesture Recognition (MediaPipe / Custom CNN)
+Gesture Recognition
         |
         v
-Matching & Decision Engine
-        |
-        v
-Access Granted / Access Denied
+Match + Decision → Access Granted / Denied
 ```
-
-### Component Responsibilities
-
-| Stage | Responsibility |
-|-------|------------------|
-| **Camera Input** | Captures live video stream from the user's device camera using the WebRTC `getUserMedia` API. |
-| **Face Detection** | Locates the face within the video frame using classical cascades or deep-learning detectors. |
-| **Face Encoding** | Converts the detected face into a compact numerical embedding that uniquely represents the user's identity. |
-| **Gesture Recognition** | Analyzes facial landmarks over time to classify the user's chosen gesture. |
-| **Matching Engine** | Compares the new face embedding and gesture classification against enrolled records. |
-| **Decision Engine** | Grants or denies access based on similarity thresholds and gesture correctness. |
 
 ---
 
@@ -114,59 +48,51 @@ Access Granted / Access Denied
 
 | Feature | Description |
 |---------|-------------|
-| **Face Recognition** | Uses neural network-based facial analysis to identify users from live camera input. |
-| **Gesture Authentication** | Allows users to define a secret facial gesture that must be performed to complete login. |
-| **Liveness Detection** | The live gesture requirement helps prevent spoofing with static photos or pre-recorded videos. |
-| **Passwordless Experience** | Users authenticate without typing or remembering passwords. |
-| **Modern UI** | Built with a responsive, animation-rich interface for a smooth user experience. |
+| **Face Recognition** | Detects and identifies the user from live camera input. |
+| **Gesture Authentication** | User-defined facial gesture acts as a secret second factor. |
+| **Liveness Defense** | Live gesture requirement helps resist photo/video replay attacks. |
+| **Passwordless UX** | No passwords to type, remember, or steal. |
+| **Cyberpunk UI** | Dark, animated interface built with Tailwind CSS and Framer Motion. |
 
 ---
 
-## Technology Stack
+## Tech Stack
 
-### Frontend
+- **Frontend:** React 18, TypeScript, Tailwind CSS
+- **UI Components:** shadcn/ui
+- **Animations:** Framer Motion
+- **Routing:** React Router v6
+- **Camera Access:** WebRTC `getUserMedia`
+- **Build Tool:** Vite 5
 
-- **React 18** — Component-based user interface library
-- **TypeScript** — Type-safe JavaScript for robust development
-- **Tailwind CSS** — Utility-first CSS framework for styling
-- **shadcn/ui** — Accessible, reusable UI components
-- **Framer Motion** — Smooth animations and transitions
-- **React Router v6** — Client-side routing and navigation
+### Recommended Production ML Stack
 
-### Media and Camera
-
-- **WebRTC `getUserMedia` API** — Secure camera access from the browser
-
-### Build Tool
-
-- **Vite 5** — Fast development server and optimized production builds
-
-### Recommended Backend / ML (for production deployment)
-
-- **Python** with **OpenCV**, **dlib**, **FaceNet**, or **DeepFace** for face recognition
-- **MediaPipe** or a **Custom Convolutional Neural Network (CNN)** for gesture recognition
-- **Secure cloud database** with encryption at rest and in transit
+- **Face Detection:** MTCNN, Haar Cascade, or RetinaFace
+- **Face Encoding:** FaceNet, DeepFace, or ArcFace
+- **Gesture Recognition:** MediaPipe Face Mesh + custom CNN / LSTM / Transformer
+- **Backend:** Secure cloud API with encrypted biometric storage
 
 ---
 
-## Application Structure
+## Project Structure
 
 ```
 /
 ├── public/                 # Static assets
 ├── src/
-│   ├── components/         # Reusable UI components
-│   ├── pages/              # Application pages (Landing, Enroll, Login, Dashboard, Report)
-│   ├── hooks/              # Custom React hooks (camera, animation, etc.)
-│   ├── lib/                # Utility functions and helpers
-│   ├── styles/             # Global and component styles
-│   ├── App.tsx             # Main application component with routes
-│   └── main.tsx            # Application entry point
+│   ├── components/         # Reusable UI components (AuthFlow, FaceScanner, etc.)
+│   ├── pages/              # Route pages (Index, Enroll, Login, Dashboard, Report, NotFound)
+│   ├── hooks/              # Custom React hooks
+│   ├── lib/                # Utility functions
+│   ├── App.tsx             # Main app with route definitions
+│   ├── main.tsx            # Entry point
+│   ├── index.css           # Global styles
+│   └── vite-env.d.ts       # Vite type declarations
 ├── index.html              # HTML entry point
-├── package.json            # Project dependencies and scripts
+├── package.json            # Dependencies and scripts
+├── tailwind.config.ts      # Tailwind configuration
 ├── tsconfig.json           # TypeScript configuration
-├── tailwind.config.js      # Tailwind CSS configuration
-└── vite.config.ts          # Vite build configuration
+└── vite.config.ts          # Vite configuration
 ```
 
 ---
@@ -175,98 +101,77 @@ Access Granted / Access Denied
 
 | Route | Description |
 |-------|-------------|
-| `/` | **Landing Page** — Introduces the system, its benefits, and how it works. |
-| `/enroll` | **Enrollment Page** — Captures the user's face and lets them choose a secret gesture. |
-| `/login` | **Login Page** — Verifies the user's face and prompts for the enrolled gesture. |
-| `/dashboard` | **Secure Dashboard** — Accessible only after successful authentication. |
-| `/report` | **Project Report** — Styled project documentation page with optional PDF export. |
+| `/` | Landing page with system overview |
+| `/enroll` | Register your face and choose a secret gesture |
+| `/login` | Verify face and perform gesture to log in |
+| `/dashboard` | Secure dashboard shown after successful authentication |
+| `/report` | Project report page with documentation |
 
 ---
 
-## Installation and Setup
+## Getting Started
 
 ### Prerequisites
 
-- Node.js 18 or later
-- npm, yarn, or pnpm package manager
-- A modern web browser with camera support
-- (Optional) A secure backend for production biometric storage
+- Node.js 18+
+- npm / yarn / pnpm
+- A browser with camera support
 
-### Step-by-Step Setup
+### Install and Run
 
-```sh
-# Step 1: Clone the repository
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate into the project folder
+# Enter the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install project dependencies
+# Install dependencies
 npm install
 
-# Step 4: Start the local development server
+# Start the development server
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173` by default. Open this URL in a browser and allow camera access when prompted.
+The app will open at `http://localhost:5173`.
 
 ### Build for Production
 
-```sh
+```bash
 npm run build
 ```
 
-This command generates an optimized `dist` folder ready for deployment to any static hosting provider.
+The optimized static files will be in the `dist/` folder, ready for deployment to any static host.
 
 ---
 
-## Usage Guide
+## Usage
 
-### First-Time Enrollment
+1. **Enroll:** Visit `/enroll`, allow camera access, and set up your face + secret gesture.
+2. **Login:** Visit `/login`, look at the camera, and perform your gesture when prompted.
+3. **Dashboard:** On success, you are taken to the protected dashboard.
 
-1. Navigate to the `/enroll` route.
-2. Allow camera access when the browser requests permission.
-3. Position your face within the on-screen frame.
-4. Capture your face embedding.
-5. Choose and record a secret facial gesture (for example: wink, nod, or smile).
-6. Confirm enrollment.
-
-### Logging In
-
-1. Navigate to the `/login` route.
-2. Allow camera access.
-3. Look at the camera so the system can recognize your face.
-4. Perform your enrolled gesture when prompted.
-5. If both factors match, you are redirected to the dashboard.
-
-### Tips for Best Results
-
-- Use good, even lighting on your face.
-- Keep the camera at eye level.
-- Avoid wearing items that heavily obscure your face during enrollment and login.
-- Perform gestures clearly and at a moderate speed.
+> **Tip:** Use even lighting, keep the camera at eye level, and avoid heavy face coverings for the best results.
 
 ---
 
-## Security Considerations
+## Security Notes
 
-- **Encrypt Biometric Data:** Face embeddings and gesture records must be encrypted at rest and in transit using strong encryption such as AES-256.
-- **Use a Secure Backend:** This frontend demo stores data locally for illustration. In production, biometric information should never be stored in browser local storage without encryption.
-- **Implement Liveness Detection:** Combine gesture recognition with blink detection, head movement, or challenge-response prompts to prevent spoofing.
-- **Apply Rate Limiting:** Limit repeated failed login attempts to prevent brute-force attacks.
-- **Follow Privacy Regulations:** Comply with GDPR, CCPA, or other applicable data protection laws when handling biometric information.
-- **Never Trust Client-Side State Alone:** Production authentication decisions must be validated on a secure server.
+- **Encrypt biometric data** at rest and in transit (AES-256 or equivalent).
+- **Use a secure backend** for production; do not store raw biometric templates in browser storage.
+- **Add liveness detection** such as blink detection, head movement, or challenge-response prompts.
+- **Rate-limit login attempts** to prevent brute-force attacks.
+- **Comply with privacy laws** (GDPR, CCPA, etc.) when collecting and storing biometric data.
+- **Never rely on client-side state alone** for authentication decisions.
 
 ---
 
 ## Model Architecture
 
-The proposed machine-learning architecture has two parallel branches:
-
-### 1. Face Recognition Branch
+### Face Recognition Branch
 
 ```
-Input Image
+Input Frame
     |
     v
 Face Detection (MTCNN / Haar Cascade)
@@ -281,10 +186,10 @@ FaceNet / DeepFace Embedding Network
 128-D or 512-D Face Embedding
     |
     v
-Similarity Comparison (Cosine / Euclidean)
+Similarity Comparison → Identity Match
 ```
 
-### 2. Gesture Recognition Branch
+### Gesture Recognition Branch
 
 ```
 Video Frames
@@ -293,10 +198,10 @@ Video Frames
 Facial Landmark Extraction (MediaPipe Face Mesh)
     |
     v
-Temporal Sequence of Landmarks
+Temporal Landmark Sequence
     |
     v
-Custom CNN / LSTM / Transformer Classifier
+CNN / LSTM / Transformer Classifier
     |
     v
 Gesture Classification
@@ -304,27 +209,27 @@ Gesture Classification
 
 ---
 
-## Training Pipeline
+## Training Pipeline (Production)
 
-1. **Data Collection:** Gather face images and gesture videos from consenting users under varied lighting, angles, and backgrounds.
-2. **Preprocessing:** Detect and align faces; normalize landmarks and frames.
-3. **Face Model Training:** Fine-tune a pretrained FaceNet or DeepFace model on the collected face dataset.
-4. **Gesture Model Training:** Train a temporal classifier on sequences of facial landmarks labeled by gesture class.
-5. **Validation:** Evaluate face recognition accuracy with metrics such as accuracy, precision, recall, and ROC-AUC.
-6. **Threshold Tuning:** Set similarity and confidence thresholds that balance security and usability.
-7. **Deployment:** Serve models through a secure backend API with rate limiting and logging.
+1. **Data Collection** — Capture labeled face images and gesture videos from consenting users.
+2. **Preprocessing** — Align faces, normalize landmarks, and augment data.
+3. **Face Model Training** — Fine-tune a pretrained face embedding model.
+4. **Gesture Model Training** — Train a temporal classifier on landmark sequences.
+5. **Validation** — Measure accuracy, precision, recall, and ROC-AUC.
+6. **Threshold Tuning** — Balance security (low false accepts) and usability (low false rejects).
+7. **Deployment** — Serve models through a secure, rate-limited backend API.
 
 ---
 
 ## Future Enhancements
 
-- Add robust liveness detection using blink, head movement, and challenge-response prompts.
-- Implement a secure cloud backend for encrypted biometric storage and server-side verification.
-- Add multi-device profile synchronization.
-- Support additional authentication factors such as email or SMS one-time passwords.
-- Provide a guided onboarding tutorial for first-time users.
-- Improve gesture recognition with larger, more diverse training datasets.
-- Add accessibility features such as audio prompts and alternative authentication paths.
+- Real face recognition and gesture classification models
+- Secure cloud backend with encrypted biometric storage
+- Robust liveness detection (blink, head movement, challenge-response)
+- Multi-device profile sync
+- Optional 2FA with email or SMS OTP
+- Onboarding tutorial for first-time users
+- Accessibility features (audio prompts, alternative auth paths)
 
 ---
 
@@ -334,4 +239,4 @@ Gesture Classification
 
 ---
 
-*Report generated for Cognitive-Aware Login System Project*
+*Built as a biometric authentication research prototype.*
