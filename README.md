@@ -132,7 +132,7 @@ The app will be available at `http://localhost:5173` by default.
 ## Future Enhancements
 
 - Add liveness detection with blink/head movement checks
-- Implement real backend authentication with Lovable Cloud
+- Implement real backend authentication with a secure cloud service
 - Multi-device profile sync
 - 2FA support with email or OTP
 - Onboarding tutorial for first-time users
